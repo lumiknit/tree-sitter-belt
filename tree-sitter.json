@@ -1,0 +1,39 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "belt",
+      "camelcase": "Belt",
+      "title": "Belt",
+      "scope": "source.belt",
+      "file-types": ["belt"],
+      "injection-regex": "^belt$",
+      "class-name": "TreeSitterBelt",
+      "highlights": ["queries/highlights.scm"]
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Belt, stack-oriented script language",
+    "authors": [
+      {
+        "name": "lumiknit",
+        "email": "aasr4r4@gmail.com",
+        "url": "https://github.com/lumiknit"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/lumiknit/tree-sitter-belt"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
+  }
+}

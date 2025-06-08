@@ -1,0 +1,21 @@
+#!/usr/bin/env belt
+
+# Print fibonacci
+
+# Calculate fibonacci recursively
+fibo = (`n => n` =
+  if n <= 1 (
+    n
+  ) (
+    fibo - n 1
+    fibo - n 2
+    + # Sum
+    # This is a recursive call.
+  )
+)
+
+# Range runs.
+# a
+range 10 (`n` =
+  println strings.join " " ["Fibo of", n, "is", fibo n]
+)

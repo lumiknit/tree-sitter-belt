@@ -1,0 +1,4 @@
+a = """
+  This is a "documentation".
+  good. \r
+""" asd
