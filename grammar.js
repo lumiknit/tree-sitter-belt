@@ -62,20 +62,22 @@ module.exports = grammar({
         field("string_content", repeat(choice($.escape_sequence, /[^']/, /'{1,2}/))),
         "'''",
       ),
-    string: ($) => choice($._str_tripledq, $._str_triplesq, $._str_dq, $._str_sq),
+    str_marker: (_) => ":",
+    string: ($) =>
+      seq(choice($._str_tripledq, $._str_triplesq, $._str_dq, $._str_sq), optional($.str_marker)),
 
     _literal: ($) => choice($.number, $.string),
 
     // Name-like identifiers
 
     // Identifiers until non-op characters
-    ident: ($) => seq($._word, /[-~!@#$%^&*=+|\\:.<>/?]*/),
-    operator: ($) => /[-~!@#$%^&*=+|\\:.<>/?]+/,
+    ident: ($) => seq($._word, /[-~!@#$%^&*+|\\.<>/?]*/),
+    operator: (_) => /[-~!@#$%^&*=+|\\:.<>/?]+/,
 
     binding: ($) => $.ident,
     pop_assign: ($) => seq($.binding, "="),
     assign: ($) => seq($.binding, ":="),
-    marker: ($) => seq($.binding, ":"),
+    marker: ($) => seq($.ident, ":"),
 
     package_name: ($) => $._word,
     package_item: ($) => seq($.package_name, ".", $.ident),
@@ -92,7 +94,23 @@ module.exports = grammar({
     // Type notation
     type_notation: ($) => seq("`", /[^`]*/, "`"),
 
+    // Module
+    import: ($) => $.string,
+    import_rhs: ($) => seq("=", $.string),
+    import_name: ($) => seq($.ident, optional($.import_rhs)),
+
+    _module: ($) => seq("@", choice($.import, $.import_name)),
+
     _atom: ($) =>
-      choice($.operation, $.array, $.map, $.comma, $.type_notation, $._literal, $._name_like),
+      choice(
+        $._module,
+        $.operation,
+        $.array,
+        $.map,
+        $.comma,
+        $.type_notation,
+        $._literal,
+        $._name_like,
+      ),
   },
 });

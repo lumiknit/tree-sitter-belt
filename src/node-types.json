@@ -24,6 +24,14 @@
           "named": true
         },
         {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "import_name",
+          "named": true
+        },
+        {
           "type": "map",
           "named": true
         },
@@ -103,6 +111,55 @@
     "fields": {}
   },
   {
+    "type": "import",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "import_name",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "ident",
+          "named": true
+        },
+        {
+          "type": "import_rhs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "import_rhs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "map",
     "named": true,
     "fields": {},
@@ -124,6 +181,14 @@
         },
         {
           "type": "ident",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "import_name",
           "named": true
         },
         {
@@ -174,7 +239,7 @@
       "required": true,
       "types": [
         {
-          "type": "binding",
+          "type": "ident",
           "named": true
         }
       ]
@@ -207,6 +272,14 @@
         },
         {
           "type": "ident",
+          "named": true
+        },
+        {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "import_name",
           "named": true
         },
         {
@@ -313,6 +386,14 @@
           "named": true
         },
         {
+          "type": "import",
+          "named": true
+        },
+        {
+          "type": "import_name",
+          "named": true
+        },
+        {
           "type": "map",
           "named": true
         },
@@ -352,6 +433,11 @@
     }
   },
   {
+    "type": "str_marker",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "string",
     "named": true,
     "fields": {
@@ -365,6 +451,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "str_marker",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -410,6 +506,10 @@
   },
   {
     "type": "=",
+    "named": false
+  },
+  {
+    "type": "@",
     "named": false
   },
   {

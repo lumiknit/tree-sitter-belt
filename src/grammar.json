@@ -315,24 +315,45 @@
         }
       ]
     },
+    "str_marker": {
+      "type": "STRING",
+      "value": ":"
+    },
     "string": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_str_tripledq"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_str_tripledq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_str_triplesq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_str_dq"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_str_sq"
+            }
+          ]
         },
         {
-          "type": "SYMBOL",
-          "name": "_str_triplesq"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_str_dq"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_str_sq"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "str_marker"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -358,7 +379,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "[-~!@#$%^&*=+|\\\\:.<>/?]*"
+          "value": "[-~!@#$%^&*+|\\\\.<>/?]*"
         }
       ]
     },
@@ -401,7 +422,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "binding"
+          "name": "ident"
         },
         {
           "type": "STRING",
@@ -540,9 +561,73 @@
         }
       ]
     },
+    "import": {
+      "type": "SYMBOL",
+      "name": "string"
+    },
+    "import_rhs": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "SYMBOL",
+          "name": "string"
+        }
+      ]
+    },
+    "import_name": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "ident"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "import_rhs"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "_module": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "@"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "import"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "import_name"
+            }
+          ]
+        }
+      ]
+    },
     "_atom": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_module"
+        },
         {
           "type": "SYMBOL",
           "name": "operation"
