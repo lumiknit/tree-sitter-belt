@@ -44,3 +44,7 @@ Now you can use the parser in Neovim.
 
 If not works, run the script `:lua vim.treesitter.start(0, "belt")` to check if the parser
 installed correctly.
+
+### Zed
+
+See `/editors/zed/README.md`

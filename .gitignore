@@ -48,3 +48,7 @@ zig-out/
 *.tar.gz
 *.tgz
 *.zip
+
+# Others
+/editors/zed/belt-lang/grammars
+/editors/zed/belt-lang/languages/belt/*.scm
