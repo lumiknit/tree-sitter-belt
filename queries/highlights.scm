@@ -1,7 +1,8 @@
 ; highlights.scm for belt language
 
 ; Names
-(binding) @function
+(assign (binding) @variable)
+(assign (binding) @function (operation))
 (line_comment) @comment
 (operator) @operator
 (package_name) @module
@@ -30,3 +31,5 @@
 "]" @punctuation.bracket
 "@" @keyword.import
 (comma) @punctuation.delimiter
+"=" @operator
+":=" @operator

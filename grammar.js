@@ -64,26 +64,28 @@ module.exports = grammar({
       ),
     str_marker: (_) => ":",
     string: ($) =>
-      seq(choice($._str_tripledq, $._str_triplesq, $._str_dq, $._str_sq), optional($.str_marker)),
+      prec.right(
+        seq(choice($._str_tripledq, $._str_triplesq, $._str_dq, $._str_sq), optional($.str_marker)),
+      ),
 
     _literal: ($) => choice($.number, $.string),
 
     // Name-like identifiers
 
     // Identifiers until non-op characters
-    ident: ($) => seq($._word, /[-~!@#$%^&*+|\\.<>/?]*/),
-    operator: (_) => /[-~!@#$%^&*=+|\\:.<>/?]+/,
+    ident: ($) => seq($._word, optional(/[-~!@#$%^&*+|\\<>/?][-~!@#$%^&*+|\\.<>/?]*/)),
+    operator: (_) => /[-~!@#$%^&*=+|\\:<>/?][-~!@#$%^&*=+|\\.:<>/?]*/,
 
     binding: ($) => $.ident,
-    pop_assign: ($) => seq($.binding, "="),
-    assign: ($) => seq($.binding, ":="),
+    assign: ($) => prec.right(seq($.binding, choice("=", ":="), optional($.operation))),
     marker: ($) => seq($.ident, ":"),
+    anon_marker: (_) => ":",
 
     package_name: ($) => $._word,
-    package_item: ($) => seq($.package_name, ".", $.ident),
+    package_item: ($) => seq($.package_name, ".", choice($.operator, $.ident)),
 
     _name_like: ($) =>
-      choice($.package_item, $.assign, $.pop_assign, $.marker, $.ident, $.operator),
+      prec.right(choice($.anon_marker, $.package_item, $.assign, $.marker, $.ident, $.operator)),
 
     // Separators
     operation: ($) => seq("(", repeat($._atom), ")"),
@@ -92,7 +94,7 @@ module.exports = grammar({
     comma: (_) => /[,;]/,
 
     // Type notation
-    type_notation: ($) => seq("`", /[^`]*/, "`"),
+    type_notation: (_) => seq("`", /[^`]*/, "`"),
 
     // Module
     import: ($) => $.string,

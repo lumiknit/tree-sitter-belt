@@ -1,5 +1,10 @@
 [
   {
+    "type": "anon_marker",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "array",
     "named": true,
     "fields": {},
@@ -7,6 +12,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "anon_marker",
+          "named": true
+        },
         {
           "type": "array",
           "named": true
@@ -56,10 +65,6 @@
           "named": true
         },
         {
-          "type": "pop_assign",
-          "named": true
-        },
-        {
           "type": "string",
           "named": true
         },
@@ -75,11 +80,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "binding",
+          "named": true
+        },
+        {
+          "type": "operation",
           "named": true
         }
       ]
@@ -168,6 +177,10 @@
       "required": false,
       "types": [
         {
+          "type": "anon_marker",
+          "named": true
+        },
+        {
           "type": "array",
           "named": true
         },
@@ -213,10 +226,6 @@
         },
         {
           "type": "package_item",
-          "named": true
-        },
-        {
-          "type": "pop_assign",
           "named": true
         },
         {
@@ -259,6 +268,10 @@
       "required": false,
       "types": [
         {
+          "type": "anon_marker",
+          "named": true
+        },
+        {
           "type": "array",
           "named": true
         },
@@ -304,10 +317,6 @@
         },
         {
           "type": "package_item",
-          "named": true
-        },
-        {
-          "type": "pop_assign",
           "named": true
         },
         {
@@ -334,6 +343,10 @@
           "named": true
         },
         {
+          "type": "operator",
+          "named": true
+        },
+        {
           "type": "package_name",
           "named": true
         }
@@ -346,21 +359,6 @@
     "fields": {}
   },
   {
-    "type": "pop_assign",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "binding",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "source_file",
     "named": true,
     "root": true,
@@ -369,6 +367,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "anon_marker",
+          "named": true
+        },
         {
           "type": "array",
           "named": true
@@ -415,10 +417,6 @@
         },
         {
           "type": "package_item",
-          "named": true
-        },
-        {
-          "type": "pop_assign",
           "named": true
         },
         {

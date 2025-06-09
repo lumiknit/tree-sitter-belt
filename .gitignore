@@ -52,3 +52,4 @@ zig-out/
 # Others
 /editors/zed/belt-lang/grammars
 /editors/zed/belt-lang/languages/belt/*.scm
+/scripts
