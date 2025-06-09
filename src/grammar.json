@@ -488,6 +488,91 @@
         }
       ]
     },
+    "builtins": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "null"
+        },
+        {
+          "type": "STRING",
+          "value": "true"
+        },
+        {
+          "type": "STRING",
+          "value": "false"
+        },
+        {
+          "type": "STRING",
+          "value": "print"
+        },
+        {
+          "type": "STRING",
+          "value": "println"
+        },
+        {
+          "type": "STRING",
+          "value": "scanln"
+        },
+        {
+          "type": "STRING",
+          "value": "if"
+        },
+        {
+          "type": "STRING",
+          "value": "range"
+        },
+        {
+          "type": "STRING",
+          "value": "each"
+        },
+        {
+          "type": "STRING",
+          "value": "map"
+        },
+        {
+          "type": "STRING",
+          "value": "filter"
+        },
+        {
+          "type": "STRING",
+          "value": "fold"
+        },
+        {
+          "type": "STRING",
+          "value": "dup"
+        },
+        {
+          "type": "STRING",
+          "value": "dup2"
+        },
+        {
+          "type": "STRING",
+          "value": "pop"
+        },
+        {
+          "type": "STRING",
+          "value": "swap"
+        },
+        {
+          "type": "STRING",
+          "value": "rot"
+        },
+        {
+          "type": "STRING",
+          "value": "and"
+        },
+        {
+          "type": "STRING",
+          "value": "or"
+        },
+        {
+          "type": "STRING",
+          "value": "not"
+        }
+      ]
+    },
     "_name_like": {
       "type": "PREC_RIGHT",
       "value": 0,
@@ -509,6 +594,10 @@
           {
             "type": "SYMBOL",
             "name": "marker"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "builtins"
           },
           {
             "type": "SYMBOL",

@@ -84,8 +84,37 @@ module.exports = grammar({
     package_name: ($) => $._word,
     package_item: ($) => seq($.package_name, ".", choice($.operator, $.ident)),
 
+    builtins: (_) =>
+      choice(
+        // Built-in consntants
+        "null",
+        "true",
+        "false",
+
+        // Built-in functions
+        "print",
+        "println",
+        "scanln",
+        "if",
+        "range",
+        "each",
+        "map",
+        "filter",
+        "fold",
+        "dup",
+        "dup2",
+        "pop",
+        "swap",
+        "rot",
+        "and",
+        "or",
+        "not",
+      ),
+
     _name_like: ($) =>
-      prec.right(choice($.anon_marker, $.package_item, $.assign, $.marker, $.ident, $.operator)),
+      prec.right(
+        choice($.anon_marker, $.package_item, $.assign, $.marker, $.builtins, $.ident, $.operator),
+      ),
 
     // Separators
     operation: ($) => seq("(", repeat($._atom), ")"),

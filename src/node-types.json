@@ -25,6 +25,10 @@
           "named": true
         },
         {
+          "type": "builtins",
+          "named": true
+        },
+        {
           "type": "comma",
           "named": true
         },
@@ -110,6 +114,11 @@
     }
   },
   {
+    "type": "builtins",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "escape_sequence",
     "named": true,
     "fields": {}
@@ -186,6 +195,10 @@
         },
         {
           "type": "assign",
+          "named": true
+        },
+        {
+          "type": "builtins",
           "named": true
         },
         {
@@ -277,6 +290,10 @@
         },
         {
           "type": "assign",
+          "named": true
+        },
+        {
+          "type": "builtins",
           "named": true
         },
         {
@@ -377,6 +394,10 @@
         },
         {
           "type": "assign",
+          "named": true
+        },
+        {
+          "type": "builtins",
           "named": true
         },
         {
@@ -527,8 +548,40 @@
     "named": false
   },
   {
+    "type": "and",
+    "named": false
+  },
+  {
     "type": "comma",
     "named": true
+  },
+  {
+    "type": "dup",
+    "named": false
+  },
+  {
+    "type": "dup2",
+    "named": false
+  },
+  {
+    "type": "each",
+    "named": false
+  },
+  {
+    "type": "false",
+    "named": false
+  },
+  {
+    "type": "filter",
+    "named": false
+  },
+  {
+    "type": "fold",
+    "named": false
+  },
+  {
+    "type": "if",
+    "named": false
   },
   {
     "type": "line_comment",
@@ -536,8 +589,56 @@
     "extra": true
   },
   {
+    "type": "map",
+    "named": false
+  },
+  {
+    "type": "not",
+    "named": false
+  },
+  {
+    "type": "null",
+    "named": false
+  },
+  {
     "type": "operator",
     "named": true
+  },
+  {
+    "type": "or",
+    "named": false
+  },
+  {
+    "type": "pop",
+    "named": false
+  },
+  {
+    "type": "print",
+    "named": false
+  },
+  {
+    "type": "println",
+    "named": false
+  },
+  {
+    "type": "range",
+    "named": false
+  },
+  {
+    "type": "rot",
+    "named": false
+  },
+  {
+    "type": "scanln",
+    "named": false
+  },
+  {
+    "type": "swap",
+    "named": false
+  },
+  {
+    "type": "true",
+    "named": false
   },
   {
     "type": "{",

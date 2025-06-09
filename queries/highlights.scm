@@ -33,3 +33,30 @@
 (comma) @punctuation.delimiter
 "=" @operator
 ":=" @operator
+
+; Keywords
+[
+  "null"
+  "true"
+  "false"
+] @constant.builtin
+
+[
+  "print"
+  "println"
+  "scanln"
+  "if"
+  "range"
+  "each"
+  "map"
+  "filter"
+  "fold"
+  "dup"
+  "dup2"
+  "pop"
+  "swap"
+  "rot"
+  "and"
+  "or"
+  "not"
+] @function.builtin
