@@ -33,15 +33,15 @@
           "named": true
         },
         {
+          "type": "cur_module",
+          "named": true
+        },
+        {
           "type": "ident",
           "named": true
         },
         {
           "type": "import",
-          "named": true
-        },
-        {
-          "type": "import_name",
           "named": true
         },
         {
@@ -119,6 +119,21 @@
     "fields": {}
   },
   {
+    "type": "cur_module",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "import_name",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "escape_sequence",
     "named": true,
     "fields": {}
@@ -133,9 +148,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "import_name",
+          "named": true
+        },
         {
           "type": "string",
           "named": true
@@ -148,30 +167,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "ident",
-          "named": true
-        },
-        {
-          "type": "import_rhs",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "import_rhs",
-    "named": true,
-    "fields": {},
-    "children": {
       "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "string",
+          "type": "ident",
           "named": true
         }
       ]
@@ -206,15 +206,15 @@
           "named": true
         },
         {
+          "type": "cur_module",
+          "named": true
+        },
+        {
           "type": "ident",
           "named": true
         },
         {
           "type": "import",
-          "named": true
-        },
-        {
-          "type": "import_name",
           "named": true
         },
         {
@@ -301,15 +301,15 @@
           "named": true
         },
         {
+          "type": "cur_module",
+          "named": true
+        },
+        {
           "type": "ident",
           "named": true
         },
         {
           "type": "import",
-          "named": true
-        },
-        {
-          "type": "import_name",
           "named": true
         },
         {
@@ -405,15 +405,15 @@
           "named": true
         },
         {
+          "type": "cur_module",
+          "named": true
+        },
+        {
           "type": "ident",
           "named": true
         },
         {
           "type": "import",
-          "named": true
-        },
-        {
-          "type": "import_name",
           "named": true
         },
         {

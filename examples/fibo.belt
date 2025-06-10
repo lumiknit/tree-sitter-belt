@@ -2,6 +2,10 @@
 
 # Print fibonacci
 
+@@ fibo
+@"io"
+@ math "math"
+
 # Calculate fibonacci recursively
 fibo = (`n => n` =
   if n <= 1 (

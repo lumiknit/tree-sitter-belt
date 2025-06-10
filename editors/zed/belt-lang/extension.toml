@@ -10,4 +10,4 @@ license = "MIT"
 
 [grammars.belt]
 repository = "https://github.com/lumiknit/tree-sitter-belt"
-commit = "afb00e5bef7c22a59aa16ea8fb9fd20cf4470936"
+commit = "b729b694677f9b3cdc55c8c06573e45bfa08fb57"

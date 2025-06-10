@@ -386,7 +386,7 @@
           "members": [
             {
               "type": "PATTERN",
-              "value": "[-~!@#$%^&*+|\\\\<>/?][-~!@#$%^&*+|\\\\.<>/?]*"
+              "value": "[-~!$%^&*+|\\\\<>/?][-~!$%^&*+|\\\\<>/?]*"
             },
             {
               "type": "BLANK"
@@ -397,7 +397,7 @@
     },
     "operator": {
       "type": "PATTERN",
-      "value": "[-~!@#$%^&*=+|\\\\:<>/?][-~!@#$%^&*=+|\\\\.:<>/?]*"
+      "value": "[-~!$%^&*=+|\\\\:<>/?][-~!$%^&*=+|\\\\:<>/?]*"
     },
     "binding": {
       "type": "SYMBOL",
@@ -691,16 +691,24 @@
         }
       ]
     },
-    "import": {
+    "import_name": {
       "type": "SYMBOL",
-      "name": "string"
+      "name": "ident"
     },
-    "import_rhs": {
+    "import": {
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "="
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "import_name"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
@@ -708,24 +716,16 @@
         }
       ]
     },
-    "import_name": {
+    "cur_module": {
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "ident"
+          "type": "STRING",
+          "value": "@"
         },
         {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "import_rhs"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
+          "type": "SYMBOL",
+          "name": "import_name"
         }
       ]
     },
@@ -741,11 +741,11 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "import"
+              "name": "cur_module"
             },
             {
               "type": "SYMBOL",
-              "name": "import_name"
+              "name": "import"
             }
           ]
         }

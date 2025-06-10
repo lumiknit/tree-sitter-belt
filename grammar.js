@@ -73,8 +73,8 @@ module.exports = grammar({
     // Name-like identifiers
 
     // Identifiers until non-op characters
-    ident: ($) => seq($._word, optional(/[-~!@#$%^&*+|\\<>/?][-~!@#$%^&*+|\\.<>/?]*/)),
-    operator: (_) => /[-~!@#$%^&*=+|\\:<>/?][-~!@#$%^&*=+|\\.:<>/?]*/,
+    ident: ($) => seq($._word, optional(/[-~!$%^&*+|\\<>/?][-~!$%^&*+|\\<>/?]*/)),
+    operator: (_) => /[-~!$%^&*=+|\\:<>/?][-~!$%^&*=+|\\:<>/?]*/,
 
     binding: ($) => $.ident,
     assign: ($) => prec.right(seq($.binding, choice("=", ":="), optional($.operation))),
@@ -126,11 +126,12 @@ module.exports = grammar({
     type_notation: (_) => seq("`", /[^`]*/, "`"),
 
     // Module
-    import: ($) => $.string,
-    import_rhs: ($) => seq("=", $.string),
-    import_name: ($) => seq($.ident, optional($.import_rhs)),
+    import_name: ($) => $.ident,
+    import: ($) => seq(optional($.import_name), $.string),
 
-    _module: ($) => seq("@", choice($.import, $.import_name)),
+    cur_module: ($) => seq("@", $.import_name),
+
+    _module: ($) => seq("@", choice($.cur_module, $.import)),
 
     _atom: ($) =>
       choice(
